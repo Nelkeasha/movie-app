@@ -2,7 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const SECRET_KEY = 'super-secret-key-change-this-in-prod';
+const SECRET_KEY = process.env.JWT_SECRET || 'fallback-secret-for-dev';
 
 const register = async (email, password) => {
     // Check if user exists
